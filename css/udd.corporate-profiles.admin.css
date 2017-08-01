@@ -1,0 +1,219 @@
+.selectize-input {
+	border-radius: 0;
+	background: #fff;
+	position: relative;
+	padding-left: 30px;
+	border-width: 3px;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.selectize-input:before {
+	content: "\f179";;
+	font-family: 'dashicons';
+	position: absolute;
+	left: 6px;
+	font-size: 18px;
+	font-weight: normal;
+	text-rendering: geometricPrecision;
+	color: #999;
+}
+.selectize-input.focus {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border-color: #999;
+}
+.selectize-input.focus:before {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.corporate-profiles {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.corporate-profiles__label {
+	margin-bottom: .5em;
+	color: #666;
+}
+.corporate-profiles__notice .spinner {
+	margin-top: 0;
+	float: none;
+	display: inline-block;
+}
+.corporate-profiles__item {
+	flex-shrink: 0;
+	width: 100%;
+	box-sizing: border-box;
+	border: 1px solid #e5e5e5;
+	position: relative;
+	transition: linear all .35s;
+	margin-bottom: -1px;
+	background: transparent;
+}
+.corporate-profiles__item--editing,
+.corporate-profiles__item:hover {
+	border-color: #999;
+	box-shadow: 0 1px 1px rgba(0,0,0,.24);
+	z-index: 10;
+	background: #fff;
+}
+.corporate-profile {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1em;
+	transition: all .25s;
+}
+.corporate-profile__card {
+	display: flex;
+	flex-basis: 100%;
+	flex-shrink: 0;
+	align-items: flex-start;
+}
+.corporate-profile__card div {
+	flex-basis: 100%;
+}
+.corporate-profiles__item--editing .corporate-profile,
+.corporate-profiles__item--editing .corporate-profile__card {
+	align-items: flex-start;
+}
+.corporate-profile__card {
+	flex-basis: 100%;
+}
+.corporate-profiles__item--editing .corporate-profile__image {
+	width: 80px;
+	height: 80px;
+	font-size: 60px;
+	line-height: 80px;
+}
+.corporate-profile__image {
+	margin-right: 15px;
+	width: 30px;
+	height: 30px;
+	display: block;
+	float: left;
+	line-height: 30px;
+	background: #ddd;
+	color: #fff;
+	transition: all .15s;
+}
+.corporate-profile__name {
+	display: inline-block;
+}
+.corporate-profile__description {
+	margin: 0;
+	font-style: italic;
+}
+.corporate-profile__role {
+	line-height: 20px;
+}
+.corporate-profile__role:hover {
+	cursor: pointer;
+	color: #000;
+}
+.corporate-profile__role:hover .corporate-profile__edit-icon {
+	display: inline-block;
+}
+.corporate-profile__name {
+	font-weight: bold;
+}
+.corporate-profile button {
+	border: 0;
+	padding: 0 1.5em;
+	background: none;
+}
+.corporate-profile__role-edit {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: baseline;
+}
+.corporate-profile__role-input {
+	flex-basis: 97%;
+}
+button.corporate-profile__role-edit-close {
+	flex-basis: 3%;
+	padding: 0;
+}
+.corporate-profile__role-input {
+	margin-top: .5em;
+}
+.corporate-profile__show {
+	white-space: nowrap;
+	color: #0073aa;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.corporate-profile__show:hover {
+	color: #00a0d2;
+}
+.corporate-profile__delete {
+	color: #a00;
+	text-decoration: underline;
+}
+.corporate-profile__delete:hover {
+	color: red;
+}
+.corporate-profile__remove-deleted {
+	padding-right: .5em;
+	cursor: pointer;
+	color: #a00;
+}
+.corporate-profile__drag {
+	padding-right: .5em;
+	color: #ccc;
+	transition: all .15s;
+	cursor: move;
+}
+.corporate-profiles__item--deleted {
+	background: rgba(255, 0, 0, 0.15);
+}
+.corporate-profiles__item--deleted:hover {
+	background: rgba(255, 0, 0, 0.2);
+	border-color: #a00;
+}
+-.corporate-profiles__item--deleted .corporate-profile__image {
+	opacity: .25;
+}
+.corporate-profile__edit-icon,
+.corporate-profiles__item--deleted button,
+.corporate-profiles__item--deleted .corporate-profile__drag {
+	display: none;
+}
+.corporate-profiles__item.sortable-ghost {
+	opacity: .5;
+	border: 1px dashed #999;
+	margin-bottom: 0;
+}
+.corporate-profiles__item.sortable-ghost .corporate-profile__image {
+	filter: grayscale(100);
+}
+.corporate-profiles__item.sortable-ghost .corporate-profile__drag,
+.corporate-profiles__item.sortable-ghost .corporate-profile__delete {
+	display: none;
+}
+.corporate-profile:hover .corporate-profile__drag {
+	color: #999;
+}
+.person-profile__image {
+	float: right;
+	margin: 0 0 10px 10px;
+}
+@media ( min-width: 768px ) {
+	.corporate-profiles,
+	.corporate-profile {
+		flex-direction: row;
+	}
+	.corporate-profile {
+		align-items: flex-start;
+		flex-flow: row nowrap;
+	}
+	.corporate-profile__card {
+		flex-basis: 100%;
+		flex-shrink: 1;
+	}
+}
+
+[v-cloak] {
+	display: none;
+}

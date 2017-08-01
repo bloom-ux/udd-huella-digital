@@ -1,0 +1,24 @@
+{
+    "name": "bloom-ux/udd-huella-digital",
+    "description": "Permite crear listas de personas con información obtenida desde el portal corporativo UDD a través de la API Huella Digital",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+	"keywords": [
+		"WordPress",
+		"UDD"
+	],
+	"version": "0.1.0",
+    "authors": [
+        {
+            "name": "Felipe Lavín Z.",
+            "email": "felipe@bloom-ux.com"
+        }
+    ],
+	"require": {
+		"php": ">=5.3.10",
+		"composer/installers": "~1.0"
+	},
+	"extra": {
+		"installer-name": "udd-corporate-profiles"
+	}
+}

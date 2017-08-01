@@ -1,0 +1,13 @@
+{
+  "name": "udd-corporate-profiles",
+  "version": "0.1.0",
+  "description": "Permite crear una lista de personas con perfiles e información almacenada en el portal corporativo de la universidad",
+  "main": "index.js",
+  "author": "Bloom User Experience",
+  "license": "GPL-2.0",
+  "dependencies": {
+    "selectize": "^0.12.4",
+    "vue": "^2.3.4",
+    "vuedraggable": "^2.13.1"
+  }
+}
