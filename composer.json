@@ -22,7 +22,7 @@
 		"installer-name": "udd-corporate-profiles"
 	},
 	"dist": {
-		"url": "https://github.com/bloom-ux/udd-huella-digital/releases/download/0.1.0/udd-corporate-profiles-0.1.0.zip",
+		"url": "https://github.com/bloom-ux/udd-huella-digital/releases/download/v0.1.1/udd-corporate-profiles.0.1.1.zip",
 		"type": "zip"
 	}
 }
