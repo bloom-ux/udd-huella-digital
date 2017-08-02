@@ -122,7 +122,10 @@ class Repository {
 			implode(',', $ids),
 			static::get_API_endpoint_url('perfiles')
 		);
-		return wp_remote_get( $request_url );
+		// permitir pasar argumentos adicionales y filtrar para implementar, por
+		// ejemplo, autenticación básica HTTP
+		$args = apply_filters('UDD_Corporate_Profiles\Repository\get_from_API_args', array() );
+		return wp_remote_get( $request_url, $args );
 	}
 
 	/**
