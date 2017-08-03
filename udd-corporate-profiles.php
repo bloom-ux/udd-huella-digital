@@ -1,13 +1,12 @@
 <?php
 /**
- * Plugin Name: Perfiles centralizados de personas
- * Version: 0.1.2
+ * Plugin Name: Perfiles Huella Digital UDD
+ * Version: 0.1.3
  * Plugin URI: http://www.udd.cl
  * Author: Bloom User Experience
  * Author URI: https://bloom-ux.com
  * Description: Crea listas de personas a partir de información creada en el portal corporativo UDD, permite reducir esfuerzo y contenidos duplicados.
  */
-use GutenPress\Model\ShortcodeFactory;
 
 // incluir funciones
 require __DIR__ .'/functions.php';
@@ -20,7 +19,7 @@ add_action('init', 'udd_profiles_register_post_type');
  * @return object|WP_Error El post type registrado o un error de WordPress
  */
 function udd_profiles_register_post_type() {
-	return register_post_type('people_list', array(
+	$post_type_args = array(
 		'label'               => _x('Listas de Personas', 'people_list', 'cpt_people_list'),
 		'labels'              => array(
 			'name'               => _x('Listas de Personas', 'people_list', 'cpt_people_list'),
@@ -55,7 +54,9 @@ function udd_profiles_register_post_type() {
 		'rewrite'             => false,
 		'query_var'           => false,
 		'can_export'          => true
-	));
+	);
+	$post_type_args = apply_filters('udd_profiles_register_post_type\post_type_args', $post_type_args );
+	return register_post_type('people_list', $post_type_args );
 }
 
 
@@ -74,8 +75,10 @@ add_action('admin_init', function(){
 require __DIR__ .'/class-repository.php';
 
 // inicializar el shortcode de legado
-require __DIR__ .'/class-legacy-shortcode.php';
-ShortcodeFactory::create('UDD_Corporate_Profiles\Legacy_Shortcode');
+if ( class_exists('GutenPress\Model\ShortcodeFactory') ) {
+	require __DIR__ .'/class-legacy-shortcode.php';
+	GutenPress\Model\ShortcodeFactory::create('UDD_Corporate_Profiles\Legacy_Shortcode');
+}
 
 // 	- administración para insertar lista
 // 	+ mediante shortcode ui
