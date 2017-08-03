@@ -7,7 +7,7 @@
 		"WordPress",
 		"UDD"
 	],
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"authors": [
 		{
 			"name": "Felipe Lavín Z.",
@@ -20,9 +20,5 @@
 	},
 	"extra": {
 		"installer-name": "udd-corporate-profiles"
-	},
-	"dist": {
-		"url": "https://github.com/bloom-ux/udd-huella-digital/releases/download/v0.1.1/udd-corporate-profiles.0.1.1.zip",
-		"type": "zip"
 	}
 }

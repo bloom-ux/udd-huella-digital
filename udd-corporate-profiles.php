@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Perfiles centralizados de personas
- * Version: 0.1.0
+ * Version: 0.1.2
  * Plugin URI: http://www.udd.cl
  * Author: Bloom User Experience
  * Author URI: https://bloom-ux.com
