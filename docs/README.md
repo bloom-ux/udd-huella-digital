@@ -12,7 +12,7 @@ Para ello debes añadir la siguiente configuración a tu archivo composer.json
 		}
 	],
 	"require": {
-		"bloom-ux/udd-huella-digital": "0.1.0"
+		"bloom-ux/udd-huella-digital": ">=0.1 <2.0.0"
 	},
 	"extra": {
 		"installer-paths": {
