@@ -10,10 +10,11 @@ namespace UDD_Corporate_Profiles;
  */
 function shortcode_display( $atts = array(), $content = '' ) {
 	global $post;
-	$atts = shortcode_atts( array(
+	$defaults = apply_filters('UDD_Corporate_Profiles\shortcode_display\defaults', array(
 		'lista'       => 0,
 		'show_photos' => 1
-	), $atts, 'perfiles_huella_digital');
+	) );
+	$atts = shortcode_atts( $defaults, $atts, 'perfiles_huella_digital');
 	if ( ! $atts['lista'] ) {
 		return '';
 	}
