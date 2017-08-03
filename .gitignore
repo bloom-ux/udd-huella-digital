@@ -1,1 +1,6 @@
 node_modules/
+!node_modules/selectize/dist/
+!node_modules/vue/dist/
+!node_modules/sortablejs/
+!node_modules/vuedraggable/dist
+
