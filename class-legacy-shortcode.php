@@ -2,7 +2,6 @@
 
 namespace UDD_Corporate_Profiles;
 use WP_Query;
-use EntriesOptions;
 use GutenPress\Forms\MetaboxForm;
 use GutenPress\Forms\Element\YesNo;
 use GutenPress\Forms\Element\Select;
@@ -45,15 +44,21 @@ class Legacy_Shortcode extends Shortcode {
 	 */
 	public function configForm(){
 		$form = new MetaboxForm('huella-digital-shotcode-form');
-		$form->addElement( new Select(
-			'Seleccionar Lista de Personas',
-			'lista',
-			$this->get_list_options()
-		) );
-		$form->addElement( new YesNo(
-			'Mostrar fotos',
-			'show_photos'
-		) );
+		$elements = array(
+			new Select(
+				'Seleccionar Lista de Personas',
+				'lista',
+				$this->get_list_options()
+			),
+			new YesNo(
+				'Mostrar fotos',
+				'show_photos'
+			)
+		);
+		$elements = apply_filters('UDD_Corporate_Profiles\Legacy_Shortcode\configForm\elements', $elements );
+		foreach ( $elements as $element ) {
+			$form->addElement( $element );
+		}
 		echo $form;
 		exit;
 	}
