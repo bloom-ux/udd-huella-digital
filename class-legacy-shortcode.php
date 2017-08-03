@@ -1,6 +1,7 @@
 <?php
 
 namespace UDD_Corporate_Profiles;
+use WP_Query;
 use EntriesOptions;
 use GutenPress\Forms\MetaboxForm;
 use GutenPress\Forms\Element\YesNo;
@@ -47,13 +48,7 @@ class Legacy_Shortcode extends Shortcode {
 		$form->addElement( new Select(
 			'Seleccionar Lista de Personas',
 			'lista',
-			new EntriesOptions( array(
-				'post_type'      => 'people_list',
-				'post_status'    => 'publish',
-				'posts_per_page' => -1,
-				'orderby'        => 'title',
-				'order'          => 'ASC'
-			))
+			$this->get_list_options()
 		) );
 		$form->addElement( new YesNo(
 			'Mostrar fotos',
@@ -61,5 +56,28 @@ class Legacy_Shortcode extends Shortcode {
 		) );
 		echo $form;
 		exit;
+	}
+
+	/**
+	 * Obtener opciones de listas de personas Huella
+	 * @return array Array con clave ID => valor título de la lista
+	 */
+	private function get_list_options() {
+		$lists = new WP_Query( array(
+			'post_type'      => 'people_list',
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'orderby'        => 'title',
+			'order'          => 'ASC'
+		) );
+		$options = array();
+		if ( ! $lists->have_posts() ) {
+			$options[''] = 'No hay listas disponibles';
+		}
+		foreach ( $lists->posts as $list ) {
+			$options[ $list->ID ] = $list->post_title;
+		}
+		$options = apply_filters('UDD_Corporate_Profiles\Legacy_Shortcode\list_options', $options, $lists );
+		return $options;
 	}
 }
