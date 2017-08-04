@@ -17,7 +17,7 @@ class Admin {
 	 * Versión de la adminstración del plugin
 	 * @var string
 	 */
-	const VERSION = '0.1.2';
+	const VERSION = '0.1.4';
 
 	/**
 	 * Contiene el slug de la pantalla de administración
