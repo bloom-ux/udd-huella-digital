@@ -1,12 +1,14 @@
 <?php
 /**
  * Plugin Name: Perfiles Huella Digital UDD
- * Version: 0.1.3
+ * Version: 0.1.4
  * Plugin URI: http://www.udd.cl
  * Author: Bloom User Experience
  * Author URI: https://bloom-ux.com
  * Description: Crea listas de personas a partir de información creada en el portal corporativo UDD, permite reducir esfuerzo y contenidos duplicados.
  */
+
+define('UDD_CORPORATE_PROFILES_SHORTCODE_TAG', 'perfiles_huella_digital');
 
 // incluir funciones
 require __DIR__ .'/functions.php';
@@ -42,10 +44,10 @@ function udd_profiles_register_post_type() {
 		'publicly_queryable'  => false,
 		'show_ui'             => true,
 		'show_in_nav_menus'   => false,
-		'show_in_menu'        => 'edit.php?post_type=person',
+		'show_in_menu'        => true,
 		'show_in_admin_bar'   => false,
 		'menu_position'       => null,
-		'menu_icon'           => null,
+		'menu_icon'           => 'dashicons-groups',
 		'map_meta_cap'        => true,
 		'capability_type'     => array( 'people_list', 'people_lists' ),
 		'hierarchical'        => false,
@@ -65,10 +67,6 @@ add_action('admin_init', function(){
 	require __DIR__ .'/class-admin.php';
 	$admin = new UDD_Corporate_Profiles\Admin;
 	$admin->init();
-
-	// inicializar el shortcode ui
-	// if ( function_exists('shortcode_ui_register_for_shortcode') ) {
-	// }
 });
 
 // inicializar el controlador del repositorio
@@ -80,7 +78,8 @@ if ( class_exists('GutenPress\Model\ShortcodeFactory') ) {
 	GutenPress\Model\ShortcodeFactory::create('UDD_Corporate_Profiles\Legacy_Shortcode');
 }
 
-// 	- administración para insertar lista
-// 	+ mediante shortcode ui
-// 	+ opciones: mostrar fotos
-// 	+ mostrar en lightbox
+// inicializar el shortcode ui
+if ( function_exists('shortcode_ui_register_for_shortcode') ) {
+	require __DIR__ .'/shortcode-ui.php';
+	add_action('register_shortcode_ui', 'UDD_Corporate_Profiles\register_shortcode_ui');
+}

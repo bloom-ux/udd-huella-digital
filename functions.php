@@ -11,8 +11,7 @@ namespace UDD_Corporate_Profiles;
 function shortcode_display( $atts = array(), $content = '' ) {
 	global $post;
 	$defaults = apply_filters('UDD_Corporate_Profiles\shortcode_display\defaults', array(
-		'lista'       => 0,
-		'show_photos' => 1
+		'lista' => 0
 	) );
 	$atts = shortcode_atts( $defaults, $atts, 'perfiles_huella_digital');
 	if ( ! $atts['lista'] ) {
@@ -64,12 +63,6 @@ function get_people_from_API( $people_ids ) {
 	return Repository::get_from_API( $people_ids );
 }
 
-/**
- * Obtener la imagen asociada a una persona
- * @param  object $person         [description]
- * @param  string $thumbnail_size [description]
- * @return [type]                 [description]
- */
 /**
  * Obtener la imagen asociada al perfil de una persona
  * @param  object $person         Objeto de persona

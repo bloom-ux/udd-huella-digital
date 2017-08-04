@@ -15,7 +15,7 @@ class Legacy_Shortcode extends Shortcode {
 	 * @inheritDoc
 	 */
 	public function setTag(){
-		$this->tag = 'perfiles_huella_digital';
+		$this->tag = UDD_CORPORATE_PROFILES_SHORTCODE_TAG;
 	}
 
 	/**
@@ -49,10 +49,6 @@ class Legacy_Shortcode extends Shortcode {
 				'Seleccionar Lista de Personas',
 				'lista',
 				$this->get_list_options()
-			),
-			new YesNo(
-				'Mostrar fotos',
-				'show_photos'
 			)
 		);
 		$elements = apply_filters('UDD_Corporate_Profiles\Legacy_Shortcode\configForm\elements', $elements );
