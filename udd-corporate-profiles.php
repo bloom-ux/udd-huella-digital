@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Perfiles Huella Digital UDD
- * Version: 0.1.4
+ * Version: 0.1.5
  * Plugin URI: http://www.udd.cl
  * Author: Bloom User Experience
  * Author URI: https://bloom-ux.com
@@ -76,10 +76,12 @@ require __DIR__ .'/class-repository.php';
 if ( class_exists('GutenPress\Model\ShortcodeFactory') ) {
 	require __DIR__ .'/class-legacy-shortcode.php';
 	GutenPress\Model\ShortcodeFactory::create('UDD_Corporate_Profiles\Legacy_Shortcode');
+} else {
+	add_shortcode( UDD_CORPORATE_PROFILES_SHORTCODE_TAG, 'UDD_Corporate_Profiles\shortcode_display' );
 }
 
 // inicializar el shortcode ui
-if ( function_exists('shortcode_ui_register_for_shortcode') ) {
+add_action('register_shortcode_ui', function(){
 	require __DIR__ .'/shortcode-ui.php';
-	add_action('register_shortcode_ui', 'UDD_Corporate_Profiles\register_shortcode_ui');
-}
+	UDD_Corporate_Profiles\register_shortcode_ui();
+});
