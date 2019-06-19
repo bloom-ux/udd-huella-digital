@@ -11,7 +11,7 @@ class Repository {
 	 * URL predeterminada del servicio Huella Digital
 	 * @var string
 	 */
-	const DEFAULT_API_BASE_URL = 'http://www.udd.cl/wp-json/huella-digital/v1/';
+	const DEFAULT_API_BASE_URL = 'https://www.udd.cl/wp-json/huella-digital/v1/';
 
 	/**
 	 * Obtener los datos de 1 o más personas a partir de su ID
